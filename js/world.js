@@ -251,7 +251,7 @@ export class World {
   /* ---------------- sư trụ trì ---------------- */
   spawnAbbot(temple) {
     const info = this.abbotInfo?.(temple) || { name: 'Thầy trụ trì' };
-    const av = makeAvatar({ hero: 'naruto_sage', appearance: { hero: 'naruto_sage', hair: 'troc', skin: '#f5cba7' }, robe: { color: '#c98a2e', sash: '#8a3f14' } });
+    const av = makeAvatar({ hero: 'bo_sua', appearance: { hero: 'bo_sua', hair: 'troc', skin: '#f5cba7' }, robe: { color: '#c98a2e', sash: '#8a3f14' } });
     setSeated(av, false);
     av.root.scale.setScalar(0.95);
     const b = this.temple.bounds;
@@ -272,7 +272,7 @@ export class World {
   }
   // Lão hành khất đứng phía đối diện thầy trụ trì
   spawnHermit(temple) {
-    const av = makeAvatar({ hero: 'shanks', appearance: { hero: 'shanks', hair: 'dai', skin: '#c99a78' }, robe: { color: '#7a6a52', sash: '#4a3a28' } });
+    const av = makeAvatar({ hero: 'dao', appearance: { hero: 'dao', hair: 'dai', skin: '#c99a78' }, robe: { color: '#7a6a52', sash: '#4a3a28' } });
     setSeated(av, false);
     av.root.scale.setScalar(0.92);
     const b = this.temple.bounds;
@@ -515,7 +515,7 @@ export class World {
     // Thêm DJ Kakashi, Đội nhảy Pháp Phục Sansa (dance-sleeves) & Võ Sĩ Ace ở Quảng Trường Sân Chùa Ngoài Trời
     if (this.temple.stressZones) {
       const djZ = this.temple.stressZones.dj;
-      const djNpc = makeAvatar({ hero: 'kakashi', outfit: 'dj_rave', groundY: djZ.pos.y, appearance: { hero: 'kakashi', outfit: 'dj_rave' } });
+      const djNpc = makeAvatar({ hero: 'lavender', outfit: 'dj_rave', groundY: djZ.pos.y, appearance: { hero: 'lavender', outfit: 'dj_rave' } });
       setSeated(djNpc, false);
       setDancing(djNpc, true);
       djNpc.root.scale.setScalar(AV_SCALE * 1.05);
@@ -530,8 +530,8 @@ export class World {
 
       // 2 Đạo hữu mặc Pháp Phục Sansa Hàn Quốc (tay áo rộng dance-sleeves) quẩy trên sàn DJ ngoài sân
       const partyDancers = [
-        { hero: 'luffy_g5', outfit: 'sansa_sage', name: 'Thần Nika (Pháp Phục Sansa)', sub: '🍃 Vũ Điệu Tay Áo Rộng 108 BPM', dx: -1.18, dz: -0.25, yaw: 0.25 },
-        { hero: 'minato', outfit: 'sansa_lotus', name: 'Tia Chớp Vàng (Sansa Maru)', sub: '🌸 Pháp Phục Hồng Sen Hàn Quốc', dx: 1.18, dz: -0.25, yaw: -0.25 },
+        { hero: 'mochi', outfit: 'default', name: 'Mochi', sub: '🍡 Nhảy Xõa Cùng DJ', dx: -1.18, dz: -0.25, yaw: 0.25 },
+        { hero: 'matcha', outfit: 'default', name: 'Matcha', sub: '🍵 Quẩy Hết Deadline', dx: 1.18, dz: -0.25, yaw: -0.25 },
       ];
       for (const pd of partyDancers) {
         const dNpc = makeAvatar({ hero: pd.hero, outfit: pd.outfit, groundY: djZ.pos.y, appearance: { hero: pd.hero, outfit: pd.outfit } });
@@ -549,14 +549,14 @@ export class World {
       }
 
       const bxZ = this.temple.stressZones.boxing;
-      const bxNpc = makeAvatar({ hero: 'ace', outfit: 'boxing_champ', groundY: bxZ.pos.y, appearance: { hero: 'ace', outfit: 'boxing_champ' } });
+      const bxNpc = makeAvatar({ hero: 'may', outfit: 'boxing_champ', groundY: bxZ.pos.y, appearance: { hero: 'may', outfit: 'boxing_champ' } });
       setSeated(bxNpc, false);
       setBoxingGloves(bxNpc, true);
       bxNpc.root.scale.setScalar(AV_SCALE * 1.05);
       bxNpc.root.position.set(bxZ.pos.x - 1.68, bxZ.pos.y, bxZ.pos.z - 0.18);
       bxNpc.root.rotation.y = 0;
       bxNpc.npc = true; bxNpc.isBoxerNpc = true; bxNpc.nextPunch = 2.5;
-      const bxLbl = new THREE.Sprite(new THREE.SpriteMaterial({ map: labelTex('Hỏa Quyền Ace', '🥊 HLV Đấm Bốc Xả Nghiệp', '#ff6b4a'), depthWrite: false, transparent: true }));
+      const bxLbl = new THREE.Sprite(new THREE.SpriteMaterial({ map: labelTex('Bé Mây', '🥊 HLV Đấm Bốc Xả Nghiệp', '#ff6b4a'), depthWrite: false, transparent: true }));
       bxLbl.scale.set(1.75 / AV_SCALE, 0.42 / AV_SCALE, 1); bxLbl.position.y = 2.15;
       bxNpc.root.add(bxLbl);
       this.scene.add(bxNpc.root);

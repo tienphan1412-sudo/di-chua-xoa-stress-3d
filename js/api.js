@@ -58,12 +58,12 @@ const AI_PEERS = THEME === 'church' ? [
   { id: 1005, name: 'Anna Diệu Hiền', sect: 'tinhdo', level: 11, title: 'Ca viên Tâm Thành', honor: '', streak: 19, appearance: { gender: 'nu', hair: 'dai', skin: '#e6b18a' }, equipped: { robe: 'ao_lam', beads: 'chuoi_go', cushion: 'bo_doan_nau', hat: null, staff: null, cloud: null, pet: null }, stats: { bows: 530, beads: 2700, rounds: 25, meditateMin: 160 } },
   { id: 1006, name: 'Phêrô Quốc Khánh', sect: 'lamte', level: 7, title: 'Người Mới Tín Thác', honor: '', streak: 8, appearance: { gender: 'nam', hair: 'ngan', skin: '#c47548' }, equipped: { robe: 'ao_nau', beads: 'chuoi_go', cushion: 'bo_doan_nau', hat: null, staff: null, cloud: null, pet: null }, stats: { bows: 240, beads: 1080, rounds: 10, meditateMin: 75 } },
 ] : [
-  { id: 1001, name: 'Naruto Lục Đạo (Minh Tâm)', sect: 'tinhdo', level: 18, title: 'Hokage Chánh Niệm', honor: 'Lục Đạo Hiền Nhân', streak: 21, appearance: { hero: 'naruto_sage', gender: 'nam', hair: 'ngan', skin: '#f5cba7' }, equipped: { robe: 'ao_sen', beads: 'chuoi_ngoc', cushion: 'bo_doan_sen', hat: null, staff: null, cloud: null, pet: 'pet_hac' }, stats: { bows: 640, beads: 3240, rounds: 30, meditateMin: 180 } },
-  { id: 1002, name: 'Roronoa Zoro (Tam Kiếm Thiền)', sect: 'truclam', level: 16, title: 'Kiếm Hào Tĩnh Định', honor: 'Tam Kiếm Đoạn Phiền Não', streak: 35, appearance: { hero: 'zoro', gender: 'nam', hair: 'ngan', skin: '#f1c29b' }, equipped: { robe: 'ao_vang', beads: 'chuoi_bo_de', cushion: 'bo_doan_do', hat: null, staff: null, cloud: null, pet: 'pet_nai' }, stats: { bows: 1120, beads: 5400, rounds: 50, meditateMin: 310 } },
-  { id: 1003, name: 'Sasuke Uchiha (Lôi Tâm)', sect: 'lamte', level: 17, title: 'Luân Hồi Giác Ngộ', honor: 'Chidori Tịnh Quang', streak: 14, appearance: { hero: 'sasuke', gender: 'nam', hair: 'ngan', skin: '#f8d5b8' }, equipped: { robe: 'ao_lam', beads: 'chuoi_pha_le', cushion: 'bo_doan_xanh', hat: null, staff: null, cloud: null, pet: 'pet_tho' }, stats: { bows: 410, beads: 2160, rounds: 20, meditateMin: 145 } },
-  { id: 1004, name: 'Itachi Uchiha (Từ Bi Nhẫn)', sect: 'taodong', level: 22, title: 'Bồ Tát Trong Bóng Tối', honor: 'Hộ Pháp Tâm Thành', streak: 49, appearance: { hero: 'itachi', gender: 'nam', hair: 'dai', skin: '#f5d0b5' }, equipped: { robe: 'ao_gam', beads: 'chuoi_ho_phach', cushion: 'bo_doan_sen', hat: null, staff: null, cloud: null, pet: 'pet_su_tu' }, stats: { bows: 1890, beads: 8640, rounds: 80, meditateMin: 520 } },
-  { id: 1005, name: 'Trafalgar Law (Bác Sĩ Tâm)', sect: 'tinhdo', level: 14, title: 'Phẫu Thuật Âu Lo', honor: 'ROOM Tịnh Tâm', streak: 19, appearance: { hero: 'law', gender: 'nam', hair: 'ngan', skin: '#f0c49e' }, equipped: { robe: 'ao_trang', beads: 'chuoi_go', cushion: 'bo_doan_nau', hat: null, staff: null, cloud: null, pet: null }, stats: { bows: 530, beads: 2700, rounds: 25, meditateMin: 160 } },
-  { id: 1006, name: 'Minato Tia Chớp Vàng', sect: 'lamte', level: 19, title: 'Tia Chớp Giải Thoát', honor: '', streak: 12, appearance: { hero: 'minato', gender: 'nam', hair: 'ngan', skin: '#f7d2b4' }, equipped: { robe: 'ao_nau', beads: 'chuoi_go', cushion: 'bo_doan_nau', hat: null, staff: null, cloud: null, pet: null }, stats: { bows: 240, beads: 1080, rounds: 10, meditateMin: 75 } },
+  { id: 1001, name: 'Hà My', sect: 'tinhdo', level: 18, title: 'Bạn Đồng Tu Chăm Chỉ', honor: 'Tâm Nhẹ Như Mây', streak: 21, appearance: { hero: 'lavender', gender: 'nam', hair: 'ngan', skin: '#f5cba7' }, equipped: { robe: 'ao_sen', beads: 'chuoi_ngoc', cushion: 'bo_doan_sen', hat: null, staff: null, cloud: null, pet: 'pet_hac' }, stats: { bows: 640, beads: 3240, rounds: 30, meditateMin: 180 } },
+  { id: 1002, name: 'Bơ Sữa Cày Đêm', sect: 'truclam', level: 16, title: 'Bạn Đồng Tu Tĩnh Tâm', honor: 'Ngủ Ngon Mỗi Đêm', streak: 35, appearance: { hero: 'bo_sua', gender: 'nam', hair: 'ngan', skin: '#f1c29b' }, equipped: { robe: 'ao_vang', beads: 'chuoi_bo_de', cushion: 'bo_doan_do', hat: null, staff: null, cloud: null, pet: 'pet_nai' }, stats: { bows: 1120, beads: 5400, rounds: 50, meditateMin: 310 } },
+  { id: 1003, name: 'Bé Mây Ngủ Nướng', sect: 'lamte', level: 17, title: 'Bạn Đồng Tu Nhẹ Nhõm', honor: 'Buông Bỏ Muộn Phiền', streak: 14, appearance: { hero: 'may', gender: 'nam', hair: 'ngan', skin: '#f8d5b8' }, equipped: { robe: 'ao_lam', beads: 'chuoi_pha_le', cushion: 'bo_doan_xanh', hat: null, staff: null, cloud: null, pet: 'pet_tho' }, stats: { bows: 410, beads: 2160, rounds: 20, meditateMin: 145 } },
+  { id: 1004, name: 'Chị Đào Tan Ca', sect: 'taodong', level: 22, title: 'Bạn Đồng Tu Hiền Hòa', honor: 'Hộ Pháp Tâm Thành', streak: 49, appearance: { hero: 'dao', gender: 'nam', hair: 'dai', skin: '#f5d0b5' }, equipped: { robe: 'ao_gam', beads: 'chuoi_ho_phach', cushion: 'bo_doan_sen', hat: null, staff: null, cloud: null, pet: 'pet_su_tu' }, stats: { bows: 1890, beads: 8640, rounds: 80, meditateMin: 520 } },
+  { id: 1005, name: 'Matcha Deadline', sect: 'tinhdo', level: 14, title: 'Bạn Đồng Tu Thong Thả', honor: 'Giữ Tâm Bình Thản', streak: 19, appearance: { hero: 'matcha', gender: 'nam', hair: 'ngan', skin: '#f0c49e' }, equipped: { robe: 'ao_trang', beads: 'chuoi_go', cushion: 'bo_doan_nau', hat: null, staff: null, cloud: null, pet: null }, stats: { bows: 530, beads: 2700, rounds: 25, meditateMin: 160 } },
+  { id: 1006, name: 'Mochi Trà Sữa', sect: 'lamte', level: 19, title: 'Bạn Đồng Tu Vui Vẻ', honor: '', streak: 12, appearance: { hero: 'mochi', gender: 'nam', hair: 'ngan', skin: '#f7d2b4' }, equipped: { robe: 'ao_nau', beads: 'chuoi_go', cushion: 'bo_doan_nau', hat: null, staff: null, cloud: null, pet: null }, stats: { bows: 240, beads: 1080, rounds: 10, meditateMin: 75 } },
 ];
 
 const GREET_PRESETS = THEME === 'church' ? [
@@ -318,7 +318,7 @@ export async function api(path, opts = {}) {
       createdAt: Date.now(),
       buffUntil: 0,
       avatar: null,
-      appearance: body.appearance || { hero: 'luffy_g5', gender: 'nam', hair: 'ngan', skin: '#f5cba7' },
+      appearance: body.appearance || { hero: 'mochi', gender: 'nu', hair: 'dai', skin: '#ffe0cc' },
       equipped: {
         robe: body.robe || 'ao_lam',
         beads: 'chuoi_go',
@@ -361,7 +361,7 @@ export async function api(path, opts = {}) {
       createdAt: Date.now() - 3 * 864e5,
       buffUntil: 0,
       avatar: null,
-      appearance: { hero: 'luffy_g5', gender: 'nam', hair: 'ngan', skin: '#f5cba7' },
+      appearance: { hero: 'mochi', gender: 'nu', hair: 'dai', skin: '#ffe0cc' },
       equipped: {
         robe: 'ao_lam',
         beads: 'chuoi_go',

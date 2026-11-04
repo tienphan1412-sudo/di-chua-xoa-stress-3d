@@ -5,6 +5,84 @@ import { addGear } from './gear.js';
 
 export const HERO_LIST = [
   {
+    id: 'mochi', emoji: '🍡',
+    name: 'Mochi',
+    title: 'Cô Bé Trà Sữa',
+    quote: 'Hôm nay chưa xong thì mai làm tiếp, giờ đi uống trà sữa đã!',
+    skillName: 'Mưa Bong Bóng Dâu',
+    skillColor: '#ff9ec4',
+    robeColor: '#ffb3c7',
+    pantsColor: '#b9c9ea',
+    sashColor: '#fff1b8',
+    skin: '#ffe0cc',
+    aura: '#ffc8dd',
+  },
+  {
+    id: 'matcha', emoji: '🍵',
+    name: 'Matcha',
+    title: 'Cô Nàng Deadline',
+    quote: 'Deadline dí hả? Hít sâu một hơi, rồi xõa!',
+    skillName: 'Cơn Mưa Matcha Latte',
+    skillColor: '#9fdcb8',
+    robeColor: '#bfeacf',
+    pantsColor: '#f4ead2',
+    sashColor: '#ffffff',
+    skin: '#ffe3d1',
+    aura: '#c9f0da',
+  },
+  {
+    id: 'bo_sua', emoji: '🥑',
+    name: 'Bơ Sữa',
+    title: 'Anh Bạn Cày Đêm',
+    quote: 'Ngủ đủ giấc mới là siêu năng lực thật sự.',
+    skillName: 'Cú Ôm Gấu Bông',
+    skillColor: '#f3d9a4',
+    robeColor: '#fff0b8',
+    pantsColor: '#a9c7ea',
+    sashColor: '#f6b98b',
+    skin: '#f6d2b4',
+    aura: '#ffeaa8',
+  },
+  {
+    id: 'lavender', emoji: '💜',
+    name: 'Lavender',
+    title: 'Cô Nàng Overthinking',
+    quote: 'Nghĩ nhiều vậy đủ rồi, ra chùa cho nhẹ đầu.',
+    skillName: 'Sóng Oải Hương',
+    skillColor: '#c9b6ff',
+    robeColor: '#d9ccff',
+    pantsColor: '#f2e9ff',
+    sashColor: '#ffd6ec',
+    skin: '#ffe2d4',
+    aura: '#dccfff',
+  },
+  {
+    id: 'dao', emoji: '🍑',
+    name: 'Đào',
+    title: 'Chị Đại Tan Ca',
+    quote: 'Tan ca rồi, xõa thôi!',
+    skillName: 'Pháo Hoa Hoa Đào',
+    skillColor: '#ffb48f',
+    robeColor: '#ffd0b5',
+    pantsColor: '#fff3e6',
+    sashColor: '#ff9f9f',
+    skin: '#f7d3b8',
+    aura: '#ffd9c2',
+  },
+  {
+    id: 'may', emoji: '☁️',
+    name: 'Mây',
+    title: 'Cậu Bé Ngủ Nướng',
+    quote: 'Năm phút nữa thôi... rồi lại năm phút nữa.',
+    skillName: 'Gối Mây Bay',
+    skillColor: '#a7d8ff',
+    robeColor: '#bfe0ff',
+    pantsColor: '#e8eef7',
+    sashColor: '#ffffff',
+    skin: '#f9d8c2',
+    aura: '#cfe9ff',
+  },
+  {
     id: 'luffy_g5',
     name: 'Luffy Gear 5',
     title: 'Thần Mặt Trời Nika',
@@ -164,15 +242,181 @@ export const HERO_LIST = [
 
 export const HERO_MAP = Object.fromEntries(HERO_LIST.map((h) => [h.id, h]));
 
+// Nhân vật gốc chibi pastel đời thường: cấu hình khuôn mặt (mắt, miệng, phụ kiện trên mặt)
+const CUTE_MALE = new Set(['bo_sua', 'may']);
+const CUTE_FACE = {
+  mochi: { iris: '#8a4f68', mouth: 'cat', eyes: 'round' },
+  matcha: { iris: '#2f7a62', mouth: 'smile', eyes: 'round', lashes: true },
+  bo_sua: { iris: '#6b4a2e', mouth: 'open', eyes: 'round', freckles: true },
+  lavender: { iris: '#6a55b8', mouth: 'cat', eyes: 'round', glasses: true },
+  dao: { iris: '#3a2a30', mouth: 'smile', eyes: 'round', lashes: true },
+  may: { iris: '#3a6a9e', mouth: 'o', eyes: 'sleepy' },
+};
+
 // Bộ Sưu Tập Đồ Trang Phục 3D (Tham khảo Pháp Phục Sansa Temple Hàn Quốc ?room=maru & Đồ Lễ Hội Sân Chùa)
 export const OUTFIT_LIST = [
   {
     id: 'default',
-    name: 'Nguyên Bản Anime',
+    name: 'Đồ Đời Thường',
     badge: 'Mặc định',
-    desc: 'Trang phục chiến đấu đặc trưng của từng nhân vật 3D.',
-    icon: '⚡',
+    desc: 'Quần áo pastel đời thường của từng nhân vật.',
+    icon: '🧸',
     swatch: '#f59e0b',
+  },
+  {
+    id: 'ao_dai_hong',
+    hairStyle: 'vn_long', hairStyleM: 'none',
+    name: 'Áo Dài Hồng Phấn + Nón Lá',
+    badge: 'Việt Nam',
+    desc: 'Áo dài cổ truyền hồng phấn, quần trắng, nón lá có quai. Tóc dài thả.',
+    icon: '🪷',
+    swatch: '#ffc9d8',
+    robeColor: '#ffc9d8',
+    pantsColor: '#ffffff',
+    sashColor: '#ffb3c7',
+    longRobe: true,
+    aoDai: true,
+    nonLa: '#f3e3b3',
+    nonLaRibbon: '#ff9fb8',
+  },
+  {
+    id: 'ao_dai_xanh',
+    hairStyle: 'vn_bun', hairStyleM: 'none',
+    name: 'Áo Dài Xanh Thiên Thanh + Nón Lá',
+    badge: 'Việt Nam',
+    desc: 'Áo dài xanh trời nhạt, quần trắng, nón lá quai xanh. Tóc búi thấp sau gáy.',
+    icon: '🌤️',
+    swatch: '#bfe0ff',
+    robeColor: '#bfe0ff',
+    pantsColor: '#ffffff',
+    sashColor: '#a8d0f5',
+    longRobe: true,
+    aoDai: true,
+    nonLa: '#f3e3b3',
+    nonLaRibbon: '#8fb8ff',
+  },
+  {
+    id: 'ao_ba_ba',
+    hairStyle: 'braid_side', hairStyleM: 'none',
+    name: 'Áo Bà Ba + Khăn Rằn',
+    badge: 'Việt Nam',
+    desc: 'Bộ bà ba miền Tây xanh bạc hà, quàng khăn rằn, nón lá. Tóc tết lệch vai.',
+    icon: '🌾',
+    swatch: '#bfe8d6',
+    robeColor: '#bfe8d6',
+    pantsColor: '#7b6f86',
+    sashColor: '#ffffff',
+    khanRan: true,
+    nonLa: '#f3e3b3',
+    nonLaRibbon: '#6aa57a',
+  },
+  {
+    id: 'kimono_sakura',
+    hairStyle: 'jp_updo', hairStyleM: 'topknot',
+    name: 'Kimono Hoa Anh Đào',
+    badge: 'Nhật Bản',
+    desc: 'Kimono tay dài hồng sakura, obi vàng nhạt có nơ sau lưng, cài hoa anh đào. Tóc búi cao.',
+    icon: '🌸',
+    swatch: '#ffc2d6',
+    robeColor: '#ffc2d6',
+    pantsColor: '#fff3f8',
+    sashColor: '#fff1b8',
+    longRobe: true,
+    wideSleeves: true,
+    sleeveLong: true,
+    crossCollar: '#ffffff',
+    obi: true,
+    kanzashi: '#ffb7c5',
+  },
+  {
+    id: 'yukata_xanh',
+    hairStyle: 'jp_odango', hairStyleM: 'topknot',
+    name: 'Yukata Mùa Hè',
+    badge: 'Nhật Bản',
+    desc: 'Yukata xanh nhạt, obi cam đào, cài hoa trắng, cầm quạt uchiwa. Tóc hai búi tròn.',
+    icon: '🎐',
+    swatch: '#bfe3ff',
+    robeColor: '#bfe3ff',
+    pantsColor: '#f1f8ff',
+    sashColor: '#ffcf9f',
+    longRobe: true,
+    wideSleeves: true,
+    crossCollar: '#ffffff',
+    obi: true,
+    kanzashi: '#ffffff',
+    fan: true,
+  },
+  {
+    id: 'hanfu_ngoc',
+    hairStyle: 'cn_double', hairStyleM: 'topknot',
+    name: 'Hán Phục Xanh Ngọc',
+    badge: 'Trung Quốc',
+    desc: 'Hán phục cổ giao lĩnh xanh ngọc, dải lụa buộc ngực, cài trâm vàng. Tóc búi đôi và xõa dài.',
+    icon: '🏮',
+    swatch: '#bfe8dd',
+    robeColor: '#bfe8dd',
+    pantsColor: '#f3fff9',
+    sashColor: '#ffd27a',
+    longRobe: true,
+    wideSleeves: true,
+    sleeveLong: true,
+    crossCollar: '#ffffff',
+    highSash: true,
+    hairpin: '#ffd27a',
+  },
+  {
+    id: 'hanfu_dao',
+    hairStyle: 'cn_updo', hairStyleM: 'topknot',
+    name: 'Hán Phục Hồng Đào',
+    badge: 'Trung Quốc',
+    desc: 'Hán phục hồng đào nhẹ nhàng, dải lụa kem, cài trâm hoa. Tóc búi cao.',
+    icon: '🪭',
+    swatch: '#ffd0d8',
+    robeColor: '#ffd0d8',
+    pantsColor: '#fff8f8',
+    sashColor: '#fff0c2',
+    longRobe: true,
+    wideSleeves: true,
+    sleeveLong: true,
+    crossCollar: '#ffffff',
+    highSash: true,
+    hairpin: '#ffc9a8',
+  },
+  {
+    id: 'hanbok_hong_xanh',
+    hairStyle: 'kr_braid', hairStyleM: 'topknot',
+    name: 'Hanbok Jeogori Hồng + Chima Xanh',
+    badge: 'Hàn Quốc',
+    desc: 'Áo jeogori hồng phấn, váy chima xòe xanh bạc hà, nơ goreum, dây norigae. Tóc tết đuôi sam.',
+    icon: '🎀',
+    swatch: '#ffc4d4',
+    robeColor: '#ffc4d4',
+    pantsColor: '#ffffff',
+    sashColor: '#bfe3d0',
+    skirtColor: '#bfe3d0',
+    chimaWide: true,
+    wideSleeves: true,
+    highSash: true,
+    hanbokRibbon: '#ff9eb5',
+    norigae: '#ff9ec4',
+  },
+  {
+    id: 'hanbok_vang_tim',
+    hairStyle: 'kr_chignon', hairStyleM: 'topknot',
+    name: 'Hanbok Jeogori Vàng + Chima Tím',
+    badge: 'Hàn Quốc',
+    desc: 'Áo jeogori vàng kem, váy chima xòe tím lilac, nơ tím, dây norigae. Tóc búi thấp cài trâm.',
+    icon: '💜',
+    swatch: '#ffe9a8',
+    robeColor: '#ffe9a8',
+    pantsColor: '#ffffff',
+    sashColor: '#d9ccff',
+    skirtColor: '#d9ccff',
+    chimaWide: true,
+    wideSleeves: true,
+    highSash: true,
+    hanbokRibbon: '#c9a6ff',
+    norigae: '#c9a6ff',
   },
   {
     id: 'sansa_sage',
@@ -541,6 +785,64 @@ function makeHeroFaceTex(heroId) {
     g.strokeStyle = '#09090b'; g.lineWidth = 10; g.lineCap = 'round';
     g.beginPath(); g.moveTo(190, 330); g.quadraticCurveTo(120, 350, 95, 425); g.stroke();
     g.beginPath(); g.moveTo(322, 330); g.quadraticCurveTo(392, 350, 417, 425); g.stroke();
+  } else if (CUTE_FACE[hero.id]) {
+    const cf = CUTE_FACE[hero.id];
+    const kEye = (cx, cy) => {
+      g.save(); g.translate(cx, cy);
+      if (cf.eyes === 'sleepy') {
+        g.strokeStyle = '#3b2a35'; g.lineWidth = 9; g.lineCap = 'round';
+        g.beginPath(); g.arc(0, -8, 26, Math.PI * 0.12, Math.PI * 0.88); g.stroke();
+      } else {
+        g.fillStyle = '#2b2230';
+        g.beginPath(); g.ellipse(0, 0, 29, 37, 0, 0, Math.PI * 2); g.fill();
+        const gr = g.createLinearGradient(0, -30, 0, 36);
+        gr.addColorStop(0, '#2b2230'); gr.addColorStop(1, cf.iris);
+        g.fillStyle = gr;
+        g.beginPath(); g.ellipse(0, 3, 25, 33, 0, 0, Math.PI * 2); g.fill();
+        g.fillStyle = '#ffffff';
+        g.beginPath(); g.ellipse(-8, -13, 9, 11, 0, 0, Math.PI * 2); g.fill();
+        g.beginPath(); g.arc(9, 15, 4.5, 0, Math.PI * 2); g.fill();
+        if (cf.lashes) {
+          g.strokeStyle = '#2b2230'; g.lineWidth = 6; g.lineCap = 'round';
+          g.beginPath(); g.moveTo(-26, -24); g.lineTo(-40, -34); g.moveTo(-14, -34); g.lineTo(-20, -48); g.stroke();
+        }
+      }
+      g.restore();
+    };
+    kEye(L_X, EYE_Y);
+    kEye(R_X, EYE_Y);
+    // má hồng
+    g.fillStyle = 'rgba(255,128,150,0.42)';
+    g.beginPath(); g.ellipse(L_X - 6, EYE_Y + 70, 34, 17, 0, 0, Math.PI * 2); g.fill();
+    g.beginPath(); g.ellipse(R_X + 6, EYE_Y + 70, 34, 17, 0, 0, Math.PI * 2); g.fill();
+    if (cf.freckles) {
+      g.fillStyle = 'rgba(160,98,60,0.7)';
+      for (const [dx, dy] of [[-16, 0], [0, 7], [14, -2], [-6, 14], [10, 12]]) {
+        g.beginPath(); g.arc(L_X - 6 + dx, EYE_Y + 66 + dy, 3.2, 0, Math.PI * 2); g.fill();
+        g.beginPath(); g.arc(R_X + 6 + dx, EYE_Y + 66 + dy, 3.2, 0, Math.PI * 2); g.fill();
+      }
+    }
+    if (cf.glasses) {
+      g.strokeStyle = '#a58df0'; g.lineWidth = 6;
+      g.beginPath(); g.arc(L_X, EYE_Y, 56, 0, Math.PI * 2); g.stroke();
+      g.beginPath(); g.arc(R_X, EYE_Y, 56, 0, Math.PI * 2); g.stroke();
+      g.beginPath(); g.moveTo(L_X + 56, EYE_Y - 8); g.lineTo(R_X - 56, EYE_Y - 8); g.stroke();
+    }
+    // miệng
+    g.lineCap = 'round'; g.lineJoin = 'round';
+    if (cf.mouth === 'cat') {
+      g.strokeStyle = '#8a4b5a'; g.lineWidth = 6;
+      g.beginPath(); g.moveTo(232, 338); g.quadraticCurveTo(244, 356, 256, 338); g.quadraticCurveTo(268, 356, 280, 338); g.stroke();
+    } else if (cf.mouth === 'open') {
+      g.fillStyle = '#e8657d'; g.strokeStyle = '#7a3040'; g.lineWidth = 5;
+      g.beginPath(); g.moveTo(228, 336); g.quadraticCurveTo(256, 378, 284, 336); g.closePath(); g.fill(); g.stroke();
+    } else if (cf.mouth === 'o') {
+      g.fillStyle = '#e8707f';
+      g.beginPath(); g.ellipse(256, 350, 9, 11, 0, 0, Math.PI * 2); g.fill();
+    } else {
+      g.strokeStyle = '#8a4b5a'; g.lineWidth = 6;
+      g.beginPath(); g.moveTo(232, 340); g.quadraticCurveTo(256, 362, 280, 340); g.stroke();
+    }
   }
 
   // Mũi 3D shading nhẹ ở giữa
@@ -562,8 +864,72 @@ function m(geo, material, x = 0, y = 0, z = 0, o = {}) {
   return mesh;
 }
 
+// Tóc, nơ, mũ len cho nhân vật gốc chibi pastel
+function buildCuteHead3D(head, hero, outfit) {
+  const id = hero.id;
+  const S = (r, w = 14, h = 12) => new THREE.SphereGeometry(r, w, h);
+  const hairColors = { mochi: '#ffb7d0', matcha: '#a9e2c8', bo_sua: '#d9b98c', lavender: '#cdb9ff', dao: '#4d3d45', may: '#a9d6f5' };
+  const hairM = mat(hairColors[id] || '#d9b98c', { roughness: 0.6 });
+
+  // Mũ tóc nền
+  head.add(m(new THREE.SphereGeometry(0.485, 28, 18, 0, Math.PI * 2, 0, Math.PI * 0.52), hairM, 0, 0.04, 0.05));
+
+  // Mái ngố
+  const styled = !!(outfit?.hairStyle || outfit?.nonLa);
+  const fringeN = (id === 'may' && !styled) ? 0 : (id === 'bo_sua' ? 3 : 5);
+  for (let i = 0; i < fringeN; i++) {
+    const t = fringeN === 1 ? 0 : (i / (fringeN - 1)) - 0.5;
+    head.add(m(S(0.115), hairM, t * 0.62, 0.30 - Math.abs(t) * 0.05, -0.40 + Math.abs(t) * 0.16, { scale: [1.05, 0.8, 0.7], rot: [0, 0, -t * 0.5] }));
+  }
+
+  if (styled) {
+    const st = CUTE_MALE.has(id) ? (outfit.hairStyleM ?? 'topknot') : outfit.hairStyle;
+    if (st && st !== 'none') buildOutfitHair3D(head, hairM, st, outfit);
+  } else if (id === 'mochi') {
+    // Hai búi tóc + dây buộc kem
+    for (const s of [-1, 1]) {
+      head.add(m(S(0.17, 16, 14), hairM, s * 0.30, 0.52, 0.04));
+      head.add(m(new THREE.TorusGeometry(0.115, 0.03, 8, 18), mat('#fff1b8'), s * 0.30, 0.41, 0.04, { rot: [Math.PI / 2, 0, 0] }));
+    }
+  } else if (id === 'matcha') {
+    // Tóc bob ngang cằm + kẹp trắng
+    for (const s of [-1, 1]) {
+      head.add(m(S(0.2, 16, 14), hairM, s * 0.40, -0.06, 0.06, { scale: [0.8, 1.5, 1.0] }));
+    }
+    head.add(m(S(0.34, 16, 14), hairM, 0, -0.05, 0.28, { scale: [1.15, 1.15, 0.8] }));
+    head.add(m(new THREE.BoxGeometry(0.16, 0.04, 0.03), mat('#ffffff'), 0.28, 0.30, -0.44, { rot: [0, 0, 0.3] }));
+  } else if (id === 'bo_sua') {
+    // Tóc xù bông + một cọng tóc dựng
+    const puffs = [[0, 0.52, 0.0, 1.1], [-0.28, 0.46, 0.0, 1.0], [0.28, 0.46, 0.0, 1.0], [-0.2, 0.5, 0.2, 1.0], [0.2, 0.5, 0.2, 1.0], [0, 0.44, 0.3, 1.05], [-0.38, 0.28, 0.1, 0.9], [0.38, 0.28, 0.1, 0.9]];
+    for (const [px, py, pz, sc] of puffs) head.add(m(G.cloudPuff, hairM, px, py, pz, { scale: [sc, sc, sc] }));
+    head.add(m(G.spike, hairM, 0.02, 0.68, -0.05, { rot: [-0.3, 0, -0.4], scale: [0.25, 0.5, 0.25] }));
+  } else if (id === 'lavender') {
+    // Hai bím tóc buông + nơ hồng
+    const tail = [[0.50, 0.12, 0.10, 0.14], [0.54, -0.06, 0.12, 0.13], [0.55, -0.24, 0.12, 0.12], [0.53, -0.40, 0.10, 0.10], [0.50, -0.52, 0.08, 0.08]];
+    const bowM = mat('#ffb6d9', { roughness: 0.5 });
+    for (const s of [-1, 1]) {
+      for (const [tx, ty, tz, tr] of tail) head.add(m(S(tr, 14, 12), hairM, s * tx, ty, tz));
+      head.add(m(S(0.05, 10, 8), bowM, s * 0.50 - 0.05, 0.25, 0.08, { scale: [1.4, 1, 0.8] }));
+      head.add(m(S(0.05, 10, 8), bowM, s * 0.50 + 0.05, 0.25, 0.08, { scale: [1.4, 1, 0.8] }));
+      head.add(m(S(0.035, 10, 8), bowM, s * 0.50, 0.25, 0.08));
+    }
+  } else if (id === 'dao') {
+    // Đuôi ngựa + scrunchie đào
+    const tail = [[0, 0.20, 0.50, 0.14], [0, 0.06, 0.58, 0.13], [0, -0.10, 0.62, 0.12], [0, -0.26, 0.62, 0.10], [0, -0.40, 0.58, 0.08]];
+    for (const [tx, ty, tz, tr] of tail) head.add(m(S(tr, 14, 12), hairM, tx, ty, tz));
+    head.add(m(new THREE.TorusGeometry(0.10, 0.035, 8, 16), mat('#ffc9a8'), 0, 0.22, 0.47, { rot: [1.2, 0, 0] }));
+  } else if (id === 'may') {
+    // Mũ len vàng kem có bông + vài lọn tóc xanh dưới mũ
+    const woolM = mat('#ffe6a8', { roughness: 0.9 });
+    head.add(m(new THREE.SphereGeometry(0.50, 28, 16, 0, Math.PI * 2, 0, Math.PI * 0.42), woolM, 0, 0.10, 0.04));
+    head.add(m(new THREE.TorusGeometry(0.484, 0.05, 10, 28), woolM, 0, 0.2245, 0.04, { rot: [Math.PI / 2, 0, 0] }));
+    head.add(m(S(0.12, 16, 14), mat('#ffffff', { roughness: 0.95 }), 0, 0.62, 0.04));
+    for (const s of [-1, 1]) head.add(m(S(0.09, 12, 10), hairM, s * 0.18, 0.18, -0.41, { scale: [1, 0.6, 0.6] }));
+  }
+}
+
 // Vẽ tóc, mũ, băng trán, sừng 3D đặc trưng cho từng nhân vật
-function buildHeroHead3D(head, hero) {
+function buildHeroHead3D(head, hero, outfit) {
   const id = hero.id;
 
   // Băng trán Ninja Làng Lá 3D (Naruto, Kakashi, Itachi, Minato)
@@ -723,6 +1089,46 @@ function buildHeroHead3D(head, hero) {
       head.add(m(new THREE.TubeGeometry(curve, 20, 0.095, 12, false), hornM));
       head.add(m(new THREE.ConeGeometry(0.095, 0.22, 12), hornM, s * 0.70, 0.82, 0.03, { rot: [0, 0, s * 0.25] }));
     }
+  } else if (CUTE_FACE[id]) {
+    buildCuteHead3D(head, hero, outfit);
+  }
+}
+
+// Phụ kiện đời thường cho nhân vật gốc: ly trà sữa, balo, hoa, túi tote, khăn
+function buildCuteProps3D(upper, hands, id) {
+  const cup = (bodyColor, strawColor) => {
+    const c = new THREE.Group();
+    c.add(m(new THREE.CylinderGeometry(0.075, 0.058, 0.17, 16), mat(bodyColor, { roughness: 0.35 }), 0, 0.09, -0.02));
+    c.add(m(new THREE.CylinderGeometry(0.08, 0.08, 0.02, 16), mat('#ffffff', { roughness: 0.4 }), 0, 0.19, -0.02));
+    c.add(m(new THREE.CylinderGeometry(0.011, 0.011, 0.2, 6), mat(strawColor), 0.02, 0.29, -0.02, { rot: [0, 0, -0.2] }));
+    return c;
+  };
+  if (id === 'mochi') {
+    hands[1].add(cup('#f3d3b5', '#ff8fb1'));
+  } else if (id === 'matcha') {
+    hands[1].add(cup('#a8dcb8', '#ffffff'));
+  } else if (id === 'bo_sua') {
+    // Balo xanh pastel sau lưng
+    const bag = mat('#c6e0ff', { roughness: 0.7 });
+    upper.add(m(new THREE.BoxGeometry(0.36, 0.42, 0.16), bag, 0, 0.30, 0.40));
+    upper.add(m(new THREE.BoxGeometry(0.2, 0.14, 0.05), mat('#a9c7ea', { roughness: 0.7 }), 0, 0.22, 0.50));
+    for (const s of [-1, 1]) upper.add(m(new THREE.BoxGeometry(0.05, 0.34, 0.04), mat('#a9c7ea'), s * 0.14, 0.40, -0.32));
+  } else if (id === 'lavender') {
+    // Cành hoa oải hương
+    const f = new THREE.Group();
+    f.add(m(new THREE.CylinderGeometry(0.012, 0.012, 0.3, 6), mat('#8fcf9f'), 0, 0.15, -0.02));
+    for (let k = 0; k < 4; k++) f.add(m(new THREE.SphereGeometry(0.035, 10, 8), mat('#b79cff', { roughness: 0.6 }), 0.005 * k, 0.28 + k * 0.045, -0.02));
+    hands[1].add(f);
+  } else if (id === 'dao') {
+    // Túi tote kem đeo tay
+    const t = new THREE.Group();
+    t.add(m(new THREE.BoxGeometry(0.2, 0.2, 0.07), mat('#fff3e0', { roughness: 0.8 }), 0, -0.12, -0.04));
+    t.add(m(new THREE.TorusGeometry(0.06, 0.012, 6, 14, Math.PI), mat('#ffb48f'), 0, -0.02, -0.04));
+    hands[0].add(t);
+  } else if (id === 'may') {
+    // Khăn len hồng quanh cổ
+    upper.add(m(new THREE.TorusGeometry(0.25, 0.07, 12, 28), mat('#ffd6e0', { roughness: 0.9 }), 0, 0.6, -0.02, { rot: [Math.PI / 2 + 0.2, 0, 0] }));
+    upper.add(m(new THREE.BoxGeometry(0.09, 0.28, 0.05), mat('#ffd6e0', { roughness: 0.9 }), 0.12, 0.44, -0.30, { rot: [0, 0, 0.1] }));
   }
 }
 
@@ -834,6 +1240,8 @@ function buildHeroProps3D(upper, hands, legR, hero) {
       club.add(m(new THREE.ConeGeometry(0.035, 0.11, 6), ironM, Math.cos(a) * 0.11, 0.32 + (k % 2) * 0.12, -0.32 + Math.sin(a) * 0.11, { rot: [0, 0, -a] }));
     }
     hands[0].add(club);
+  } else if (CUTE_FACE[id]) {
+    buildCuteProps3D(upper, hands, id);
   }
 
   return vfxGroup;
@@ -862,6 +1270,167 @@ function auraDisc(color) {
   disc.position.y = 0.03;
   disc.renderOrder = 1;
   return disc;
+}
+
+// Kiểu tóc theo trang phục và văn hoá (Việt, Nhật, Trung, Hàn) cộng búi tóc cho nhân vật nam
+function buildOutfitHair3D(head, hairM, style, outfit) {
+  const S = (r, w = 16, h = 14) => new THREE.SphereGeometry(r, w, h);
+  const gold = mat('#ffd27a', { metalness: 0.6, roughness: 0.3 });
+  const accent = mat(outfit?.nonLaRibbon || outfit?.hanbokRibbon || outfit?.sashColor || '#ffb3c7', { roughness: 0.55 });
+  // Tóc xõa dài phía sau
+  const longBack = (w) => {
+    head.add(m(S(0.30), hairM, 0, 0.02, 0.40, { scale: [w, 1.5, 0.55] }));
+    head.add(m(S(0.26), hairM, 0, -0.30, 0.41, { scale: [w * 0.92, 1.6, 0.5] }));
+    head.add(m(S(0.20, 14, 12), hairM, 0, -0.55, 0.40, { scale: [w * 0.85, 1.2, 0.5] }));
+  };
+  if (style === 'vn_long') {
+    longBack(1.15);
+    for (const s of [-1, 1]) head.add(m(S(0.14), hairM, s * 0.47, -0.22, 0.10, { scale: [0.45, 1.7, 0.7] }));
+  } else if (style === 'vn_bun') {
+    head.add(m(S(0.17), hairM, 0, -0.08, 0.54));
+    head.add(m(new THREE.CylinderGeometry(0.012, 0.012, 0.34, 6), gold, 0, -0.08, 0.57, { rot: [0, 0, Math.PI / 2] }));
+    for (const s of [-1, 1]) head.add(m(S(0.2), hairM, s * 0.38, -0.04, 0.22, { scale: [0.6, 1.1, 0.8] }));
+  } else if (style === 'braid_side') {
+    for (let i = 0; i < 7; i++) head.add(m(S(0.075 - i * 0.004, 12, 10), hairM, 0.43 + (i % 2 ? 0.012 : -0.012), 0.02 - i * 0.1, -0.06, {}));
+    head.add(m(S(0.04, 10, 8), accent, 0.43, -0.7, -0.06, { scale: [1.5, 1, 0.8] }));
+    head.add(m(S(0.3), hairM, 0, 0.02, 0.38, { scale: [1.1, 1.2, 0.55] }));
+  } else if (style === 'jp_updo') {
+    head.add(m(S(0.20), hairM, 0, 0.50, 0.14, { scale: [1.25, 0.9, 1] }));
+    head.add(m(new THREE.TorusGeometry(0.13, 0.05, 8, 16), hairM, 0, 0.62, 0.06, { rot: [0.5, 0, 0] }));
+    head.add(m(S(0.30), hairM, 0, 0.12, 0.34, { scale: [1.1, 1.0, 0.6] }));
+    head.add(m(new THREE.BoxGeometry(0.1, 0.03, 0.03), mat('#e85d75'), 0, 0.38, 0.30, { rot: [0.3, 0, 0] }));
+  } else if (style === 'jp_odango') {
+    for (const s of [-1, 1]) head.add(m(S(0.15), hairM, s * 0.40, 0.40, 0.10));
+    head.add(m(S(0.30), hairM, 0, 0.10, 0.34, { scale: [1.1, 1.0, 0.6] }));
+  } else if (style === 'cn_double') {
+    for (const s of [-1, 1]) {
+      head.add(m(new THREE.TorusGeometry(0.11, 0.045, 8, 16), hairM, s * 0.28, 0.52, 0.08, {}));
+      head.add(m(S(0.05, 10, 8), accent, s * 0.28, 0.43, 0.08));
+    }
+    longBack(0.85);
+  } else if (style === 'cn_updo') {
+    head.add(m(S(0.18), hairM, 0, 0.56, 0.04));
+    head.add(m(new THREE.TorusGeometry(0.11, 0.025, 8, 16), accent, 0, 0.47, 0.04, { rot: [Math.PI / 2, 0, 0] }));
+    head.add(m(new THREE.CylinderGeometry(0.012, 0.012, 0.36, 6), gold, 0, 0.58, 0.04, { rot: [0, 0, Math.PI / 2 - 0.25] }));
+    longBack(0.85);
+  } else if (style === 'kr_braid') {
+    for (let i = 0; i < 9; i++) head.add(m(S(0.075 - i * 0.003, 12, 10), hairM, (i % 2 ? 0.016 : -0.016), 0.05 - i * 0.095, 0.45, {}));
+    head.add(m(S(0.04, 10, 8), accent, 0, -0.82, 0.45, { scale: [1.8, 1, 0.8] }));
+    head.add(m(S(0.3), hairM, 0, 0.04, 0.38, { scale: [1.1, 1.2, 0.55] }));
+  } else if (style === 'kr_chignon') {
+    head.add(m(S(0.15), hairM, 0, -0.04, 0.54));
+    head.add(m(new THREE.CylinderGeometry(0.013, 0.013, 0.4, 6), gold, 0, -0.04, 0.57, { rot: [0, 0, Math.PI / 2] }));
+    head.add(m(S(0.03, 8, 6), mat('#e85d75'), 0.2, -0.04, 0.57));
+    head.add(m(S(0.3), hairM, 0, 0.04, 0.36, { scale: [1.1, 1.1, 0.55] }));
+  } else if (style === 'topknot') {
+    head.add(m(S(0.13), hairM, 0, 0.58, 0.02));
+    head.add(m(new THREE.TorusGeometry(0.10, 0.022, 8, 14), accent, 0, 0.50, 0.02, { rot: [Math.PI / 2, 0, 0] }));
+  }
+}
+
+// ===== Trang phục truyền thống Việt Nam, Nhật Bản, Trung Quốc, Hàn Quốc =====
+function makeCheckTex() {
+  if (typeof document === 'undefined') return null;
+  const c = document.createElement('canvas'); c.width = 64; c.height = 64;
+  const g = c.getContext('2d');
+  g.fillStyle = '#f6f2e4'; g.fillRect(0, 0, 64, 64);
+  g.fillStyle = 'rgba(80,140,100,0.85)';
+  for (let i = 0; i < 64; i += 16) { g.fillRect(i, 0, 8, 64); g.fillRect(0, i, 64, 8); }
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(8, 2); t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+// Chi tiết trên thân: cổ áo dài, cổ giao lĩnh, obi, dải lụa, khăn rằn, norigae
+function buildOutfitUpper3D(upper, outfit, rColor, sColor) {
+  if (!outfit) return;
+  const mt = (c, o = {}) => mat(c, { roughness: 0.7, ...o });
+  if (outfit.aoDai) {
+    upper.add(m(new THREE.CylinderGeometry(0.2, 0.22, 0.09, 20, 1, true), mt(rColor, { side: THREE.DoubleSide }), 0, 0.63, -0.02));
+  }
+  if (outfit.crossCollar) {
+    const cc = mt(outfit.crossCollar);
+    upper.add(m(new THREE.BoxGeometry(0.30, 0.03, 0.03), cc, -0.06, 0.50, -0.29, { rot: [0.1, 0, -0.75] }));
+    upper.add(m(new THREE.BoxGeometry(0.30, 0.03, 0.03), cc, 0.06, 0.50, -0.29, { rot: [0.1, 0, 0.75] }));
+    upper.add(m(new THREE.TorusGeometry(0.21, 0.03, 10, 24), cc, 0, 0.62, -0.02, { rot: [Math.PI / 2 + 0.22, 0, 0] }));
+  }
+  if (outfit.highSash) {
+    const hs = mt(outfit.highSashColor || sColor, { roughness: 0.5 });
+    upper.add(m(new THREE.CylinderGeometry(0.33, 0.36, 0.09, 24), hs, 0, 0.40, 0, { scale: [1, 1, 0.9] }));
+    for (const s of [-1, 1]) upper.add(m(new THREE.BoxGeometry(0.04, 0.3, 0.02), hs, s * 0.07, 0.22, -0.36, { rot: [0, 0, s * 0.08] }));
+  }
+  if (outfit.obi) {
+    const om = mt(sColor, { roughness: 0.5 });
+    upper.add(m(new THREE.CylinderGeometry(0.40, 0.42, 0.26, 28), om, 0, 0.17, 0));
+    for (const s of [-1, 1]) {
+      upper.add(m(new THREE.SphereGeometry(0.13, 14, 12), om, s * 0.17, 0.22, 0.44, { scale: [1.2, 1.0, 0.45] }));
+      upper.add(m(new THREE.BoxGeometry(0.07, 0.3, 0.02), om, s * 0.07, -0.02, 0.44, { rot: [0, 0, s * 0.12] }));
+    }
+    upper.add(m(new THREE.SphereGeometry(0.07, 12, 10), mt('#ffffff'), 0, 0.22, 0.46));
+  }
+  if (outfit.khanRan) {
+    const tex = makeCheckTex();
+    const km = tex ? new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9 }) : mt('#6aa57a');
+    upper.add(m(new THREE.TorusGeometry(0.25, 0.07, 12, 28), km, 0, 0.6, -0.02, { rot: [Math.PI / 2 + 0.2, 0, 0] }));
+    upper.add(m(new THREE.BoxGeometry(0.09, 0.26, 0.04), km, 0.12, 0.44, -0.30, { rot: [0, 0, 0.1] }));
+  }
+  if (outfit.norigae) {
+    const nm = mt(outfit.norigae, { roughness: 0.5 });
+    upper.add(m(new THREE.SphereGeometry(0.045, 10, 8), nm, -0.12, 0.30, -0.37));
+    for (const dx of [-0.02, 0.02]) upper.add(m(new THREE.BoxGeometry(0.02, 0.2, 0.01), nm, -0.12 + dx, 0.17, -0.37));
+  }
+}
+
+// Hai tà áo dài trước và sau (nằm ở phần chân nên tự ẩn khi ngồi)
+function buildOutfitLegs3D(legs, outfit, rColor) {
+  if (!outfit?.aoDai) return;
+  const pm = mat(rColor, { roughness: 0.7, side: THREE.DoubleSide });
+  legs.add(m(new THREE.BoxGeometry(0.22, 0.5, 0.025), pm, 0, 0.20, -0.37, { rot: [0.08, 0, 0] }));
+  legs.add(m(new THREE.BoxGeometry(0.22, 0.5, 0.025), pm, 0, 0.20, 0.37, { rot: [-0.08, 0, 0] }));
+}
+
+// Phụ kiện trên đầu: nón lá, hoa cài tóc kanzashi, trâm cài tóc
+function buildOutfitHead3D(head, outfit) {
+  if (!outfit) return;
+  if (outfit.nonLa) {
+    head.add(m(new THREE.ConeGeometry(0.64, 0.30, 32, 1, true), mat(outfit.nonLa, { roughness: 0.85, side: THREE.DoubleSide }), 0, 0.50, 0));
+    head.add(m(new THREE.TorusGeometry(0.64, 0.012, 6, 36), mat('#d9c48a'), 0, 0.35, 0, { rot: [Math.PI / 2, 0, 0] }));
+    const rb = mat(outfit.nonLaRibbon || '#ff9fb8', { roughness: 0.6 });
+    for (const s of [-1, 1]) {
+      const curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(s * 0.50, 0.34, -0.02), new THREE.Vector3(s * 0.52, 0.0, -0.14),
+        new THREE.Vector3(s * 0.40, -0.22, -0.34), new THREE.Vector3(s * 0.16, -0.33, -0.42),
+      ]);
+      head.add(m(new THREE.TubeGeometry(curve, 16, 0.014, 6, false), rb));
+    }
+    head.add(m(new THREE.SphereGeometry(0.04, 10, 8), rb, 0, -0.34, -0.43, { scale: [1.6, 1, 0.8] }));
+  }
+  const flower = (color, centerColor, x, y, z) => {
+    const pm = mat(color, { roughness: 0.5 });
+    for (let k = 0; k < 5; k++) {
+      const ang = (k / 5) * Math.PI * 2;
+      head.add(m(new THREE.SphereGeometry(0.05, 10, 8), pm, x + Math.cos(ang) * 0.065, y + Math.sin(ang) * 0.065, z, { scale: [1, 1, 0.5] }));
+    }
+    head.add(m(new THREE.SphereGeometry(0.03, 10, 8), mat(centerColor), x, y, z - 0.02));
+  };
+  if (outfit.kanzashi) {
+    flower(outfit.kanzashi, '#ffd166', 0.30, 0.38, -0.20);
+    for (let k = 0; k < 3; k++) head.add(m(new THREE.SphereGeometry(0.018, 8, 6), mat(outfit.kanzashi), 0.30, 0.28 - k * 0.055, -0.24));
+  }
+  if (outfit.hairpin) {
+    flower(outfit.hairpin, '#ff9eb5', -0.30, 0.38, -0.20);
+    for (let k = 0; k < 3; k++) head.add(m(new THREE.SphereGeometry(0.018, 8, 6), mat(outfit.hairpin, { metalness: 0.6, roughness: 0.3 }), -0.30, 0.28 - k * 0.055, -0.24));
+  }
+}
+
+// Cầm quạt uchiwa (Yukata)
+function buildOutfitProps3D(upper, hands, outfit) {
+  if (!outfit?.fan) return;
+  const f = new THREE.Group();
+  f.add(m(new THREE.CylinderGeometry(0.14, 0.14, 0.012, 24), mat('#ffffff', { roughness: 0.6 }), 0, 0.2, -0.04, { rot: [Math.PI / 2, 0, 0] }));
+  f.add(m(new THREE.CylinderGeometry(0.1, 0.1, 0.014, 20), mat('#ffb7c5'), 0, 0.2, -0.045, { rot: [Math.PI / 2, 0, 0] }));
+  f.add(m(new THREE.BoxGeometry(0.03, 0.2, 0.012), mat('#d8b68a'), 0, 0.04, -0.04));
+  hands[0].add(f);
 }
 
 let autoHeroIdx = 0;
@@ -927,7 +1496,7 @@ export function makeAvatar(opts = {}) {
     const a = m(G.arm, torsoMat, s * 0.30, 0.38, -0.12, { rot: [1.0, 0, s * 0.5] });
     if (outfit?.wideSleeves) {
       // Tay áo trường sam Hàn Quốc (One_continuous_soft_robe / dance-sleeves) rủ mềm quanh cánh tay
-      const slv = m(sleeveGeo, sleeveMat, 0, -0.04, 0.04, { rot: [Math.PI, 0, 0], scale: [0.85, 1.0, 1.25] });
+      const slv = m(sleeveGeo, sleeveMat, 0, -0.04, 0.04, { rot: [Math.PI, 0, 0], scale: outfit?.sleeveLong ? [1.0, 1.7, 1.4] : [0.85, 1.0, 1.25] });
       a.add(slv);
       danceSleeves.push(slv);
     }
@@ -983,6 +1552,8 @@ export function makeAvatar(opts = {}) {
     upper.add(m(new THREE.TorusGeometry(0.40, 0.018, 10, 28), neonPink, 0, 0.14, 0, { rot: [Math.PI / 2, 0, 0], cast: false }));
   }
 
+  buildOutfitUpper3D(upper, outfit, rColor, sColor);
+
   // Đầu Chibi lớn biểu cảm + Mặt Anime sắc nét + Tóc/Mũ/Sừng 3D
   const head = new THREE.Group();
   head.position.y = 0.98;
@@ -999,7 +1570,7 @@ export function makeAvatar(opts = {}) {
   const eyes = [m(G.eye, skinM, -0.13, 0, -0.42), m(G.eye, skinM, 0.13, 0, -0.42)];
   eyes.forEach((e) => { e.visible = false; head.add(e); });
 
-  buildHeroHead3D(head, hero);
+  buildHeroHead3D(head, hero, outfit);
 
   // Phụ kiện đầu theo Bộ Trang Phục (Kính Cyber Visor & Tai nghe DJ hoặc Băng trán Võ sĩ)
   if (outfit?.djGear) {
@@ -1015,10 +1586,13 @@ export function makeAvatar(opts = {}) {
     head.add(m(new THREE.CylinderGeometry(0.47, 0.47, 0.10, 28, 1, true), mat('#dc2626', { roughness: 0.5, side: THREE.DoubleSide }), 0, 0.18, 0));
   }
 
+  buildOutfitHead3D(head, outfit);
   upper.add(head);
 
   // Chân, Giày và Vạt áo (One_continuous_soft_robe)
-  const lap = m(G.lap, outfit?.sansaRobe ? robeM : pantsM, 0, 0.12, -0.06, { scale: [0.52, 0.17, 0.42] });
+  const skirtM = outfit?.skirtColor ? mat(outfit.skirtColor, { roughness: 0.8 }) : robeM;
+  const lapM = outfit?.skirtColor ? skirtM : ((outfit?.sansaRobe || outfit?.longRobe) ? robeM : pantsM);
+  const lap = m(G.lap, lapM, 0, 0.12, -0.06, { scale: outfit?.chimaWide ? [0.74, 0.2, 0.6] : [0.52, 0.17, 0.42] });
   const legs = new THREE.Group();
   const legL = m(G.leg, pantsM, -0.14, 0.2, 0), legR = m(G.leg, pantsM, 0.14, 0.2, 0);
   const shoeM = mat(outfit?.sansaRobe ? '#f8fafc' : '#1e1b18', { roughness: 0.65 });
@@ -1026,13 +1600,15 @@ export function makeAvatar(opts = {}) {
     l.add(m(G.foot, shoeM, 0, -0.19, -0.05, { scale: [0.95, 0.65, 1.4] }));
   }
   legs.add(legL, legR);
-  const skirt = m(G.skirt, robeM, 0, 0, 0, { scale: outfit?.sansaRobe ? [1.02, 0.96, 0.96] : [0.95, 0.85, 0.85] });
-  skirt.visible = !!outfit?.sansaRobe || ['itachi', 'zoro', 'naruto_sage', 'minato'].includes(hero.id);
+  const skirt = m(G.skirt, skirtM, 0, 0, 0, { scale: outfit?.chimaWide ? [1.45, 1.0, 1.45] : (outfit?.sansaRobe ? [1.02, 0.96, 0.96] : [0.95, 0.85, 0.85]) });
+  skirt.visible = !!outfit?.sansaRobe || !!outfit?.longRobe || !!outfit?.chimaWide || ['itachi', 'zoro', 'naruto_sage', 'minato', 'matcha', 'lavender', 'dao'].includes(hero.id);
   legs.add(skirt);
+  buildOutfitLegs3D(legs, outfit, rColor);
   root.add(lap, legs);
 
   // Đạo cụ 3D & Hiệu ứng nguyên tố
   const vfxGroup = buildHeroProps3D(upper, hands, legR, hero);
+  buildOutfitProps3D(upper, hands, outfit);
 
   // Quả cầu Tuyệt Chiêu 3D (hiện lên khi tung đòn đấm bốc / xả stress)
   const ultSphere = m(

@@ -461,7 +461,7 @@ async function boot() {
 /* =====================================================================
    TẠO / SỬA NHÂN VẬT (12 NHÂN VẬT 3D NARUTO × ONE PIECE)
    ===================================================================== */
-const setup = { step: 2, mode: 'new', ap: { hero: 'luffy_g5', outfit: 'sansa_sage', gender: 'nam', hair: 'ngan', skin: '#f5cba7' }, robe: 'ao_lam', sect: 'tinhdo', temple: null };
+const setup = { step: 2, mode: 'new', ap: { hero: 'mochi', outfit: 'default', gender: 'nu', hair: 'dai', skin: '#ffe0cc' }, robe: 'ao_lam', sect: 'tinhdo', temple: null };
 let preview;
 
 // Tọa độ cắt ảnh tham khảo 4 cột x 3 hàng (characters-naruto-online.jpg)
@@ -484,7 +484,7 @@ function renderHeroGrid(container, currentHero, onSelect) {
   if (!container) return;
   container.innerHTML = HERO_LIST.map((h) => `
     <button type="button" class="hero-card ${h.id === currentHero ? 'on' : ''}" data-hero="${h.id}">
-      <span class="hc-thumb" style="background-position:${HERO_SPRITE_POS[h.id] || '0% 0%'}"></span>
+      ${HERO_SPRITE_POS[h.id] ? `<span class="hc-thumb" style="background-position:${HERO_SPRITE_POS[h.id]}"></span>` : `<span class="hc-thumb" style="background:linear-gradient(145deg,${h.aura},${h.robeColor});display:grid;place-items:center;font-size:26px">${h.emoji || '✨'}</span>`}
       <span class="hc-meta">
         <b>${esc(h.name)}</b>
         <small>${esc(h.title)}</small>
@@ -565,7 +565,7 @@ function rebuildPreview(playAction = false) {
   if (preview.av) preview.scene.remove(preview.av.root);
   const robe = S.items[setup.robe]?.data;
   const beads = S.items[S.profile?.user?.equipped?.beads || 'chuoi_go']?.data;
-  const heroId = setup.ap.hero || 'luffy_g5';
+  const heroId = setup.ap.hero || 'mochi';
   const outfitId = setup.ap.outfit || 'default';
   const heroDef = HERO_MAP[heroId] || HERO_LIST[0];
   const outfitDef = OUTFIT_MAP[outfitId] || OUTFIT_LIST[0];
@@ -693,12 +693,12 @@ function openSetup(mode) {
   setup.step = 2;
   if (mode === 'edit') {
     const u = S.profile.user;
-    setup.ap = { hero: 'luffy_g5', ...u.appearance };
+    setup.ap = { hero: 'mochi', ...u.appearance };
     setup.robe = u.equipped.robe;
     $('fName').value = u.name;
     setup.nameSig = '';
   } else {
-    setup.ap.hero ||= 'luffy_g5';
+    setup.ap.hero ||= 'mochi';
     if (!setup.nameSig) grantName();
   }
   $('fName').readOnly = false;
@@ -3819,7 +3819,7 @@ function onStressBagPunched(bagDef) {
   const crit = stressState.combo > 0 && stressState.combo % 4 === 0;
   Sound.punchSfx(crit);
   setActiveZonePill('boxing');
-  const heroId = S.profile?.user?.appearance?.hero || 'luffy_g5';
+  const heroId = S.profile?.user?.appearance?.hero || 'mochi';
   const hero = HERO_MAP[heroId] || HERO_LIST[0];
   const drop = crit ? -15 : -8;
   const targetName = bagDef?.name || 'NGHIỆP CHƯỚNG';
@@ -3918,7 +3918,7 @@ if ($('btnHyperMuyu')) {
 
 // Đổi nhanh giữa 12 Nhân Vật 3D & 8 Bộ Trang Phục Sansa Hàn Quốc (?room=maru) ngay trong chùa
 function openHeroSwitcherModal() {
-  const curHero = S.profile?.user?.appearance?.hero || 'luffy_g5';
+  const curHero = S.profile?.user?.appearance?.hero || 'mochi';
   const curOutfit = S.profile?.user?.appearance?.outfit || 'default';
   modal(`
     <div class="hero-modal">
